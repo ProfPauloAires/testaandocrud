@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciador de Estoque com Firebase</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Carregando os scripts oficiais do Firebase (Versão Compat) -->
+    <script src="https://gstatic.com"></script>
+    <script src="https://gstatic.com"></script>
+</head>
+<body>
+
+    <div class="container">
+        <h2>📦 Gerenciador com Firebase Cloud</h2>
+        
+        <!-- Formulário de Cadastro e Edição -->
+        <div class="campo">
+            <label for="nome">Nome do Produto:</label>
+            <input type="text" id="nome" placeholder="Ex: Teclado Mecânico">
+        </div>
+        <div class="campo">
+            <label for="preco">Preço (R\$):</label>
+            <input type="number" id="preco" step="0.01" placeholder="Ex: 150.00">
+        </div>
+        
+        <!-- Campo invisível para armazenar o ID gerado pelo Firebase durante a edição -->
+        <input type="hidden" id="id-edicao" value="">
+
+        <div class="botoes-form">
+            <button id="btn-acao" class="btn-salvar" onclick="salvarProduto()">Cadastrar Produto</button>
+            <button id="btn-cancelar" class="btn-cancelar" onclick="cancelarEdicao()">Cancelar</button>
+        </div>
+
+        <!-- Filtro de Localização -->
+        <div class="busca-container">
+            <label for="busca" style="color: #0d47a1;">🔍 Localizar Produto:</label>
+            <input type="text" id="busca" placeholder="Digite o nome para buscar..." oninput="localizarProduto()">
+        </div>
+
+        <!-- Área de Visualização -->
+        <div class="lista-produtos">
+            <h3>📋 Lista de Produtos na Nuvem</h3>
+            <div id="lista-container">Carregando estoque da nuvem...</div>
+        </div>
+    </div>
+
+    <!-- Vinculando o arquivo JavaScript externo -->
+    <script src="script.js"></script>
+</body>
+</html>
